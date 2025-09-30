@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock, Paper, Scissors</title>
 </head>
 <body>
+    <div class="container">
+
+        <h1 class="heading">Rock, Paper, Scissors</h1>
+
+        <div class="score-container">
+            <p>Player Score: <span class="score" id="player-score">0</span></p>
+            <p>Computer Score: <span class="score" id="computer-score">0</span></p>
+            <p id="results-msg"></p>
+            <p id="winner-msg"></p>
+            <button id="reset-btn">RESET</button>
+        </div>
+
+        <div class="emojis">
+            <div class="rockEmoji">&#x270A;&#x1F3FD;</div>
+            <div class="paperEmoji">&#x270B;&#x1F3FD;</div>
+            <div class="scissorsEmoji">&#x270C;&#x1F3FD;</div>
+        </div>
+
+        <div class="options-container">
+            <button id="rockBtn">Rock</button>
+            <button id="paperBtn">Paper</button>
+            <button id="scissorsBtn">Scissors</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+    
+
     <script src="script.js">
-        console.log("Hello, World!"); 
+        
     </script>
 </body>
 </html> 

@@ -1,3 +1,98 @@
+let options = ["Rock", "Paper", "Scissors"]
+
+function getComputerChoice(){
+    let randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex];
+};
+
+function hasPlayerWonTheRound(playerChoice, computerChoice) {
+  return (
+    (playerChoice === "Rock" && computerChoice === "Scissors") ||
+    (playerChoice === "Scissors" && computerChoice === "Paper") ||
+    (playerChoice === "Paper" && computerChoice === "Rock")
+  );
+};
+
+let playerScore = 0;
+let computerScore = 0;
+
+function getRoundResults(userOption) {
+  const computerResult = getComputerChoice();
+
+  if (hasPlayerWonTheRound(userOption, computerResult)) {
+    playerScore++;
+    return `Player wins! ${userOption} beats ${computerResult}`;
+  } else if (computerResult === userOption) {
+    return `It's a tie! Both chose ${userOption}`;
+  } else {
+    computerScore++;
+    return `Computer wins! ${computerResult} beats ${userOption}`;
+  }
+};
+
+let playerScoreTextElement = document.getElementById("player-score");
+let computerScoreTextElement = document.getElementById("computer-score");
+let roundResultsMsg = document.getElementById("results-msg");
+const winnerMsgElement = document.getElementById("winner-msg");
+const optionsContainer = document.querySelector(".options-container");
+let resetBtn = document.getElementById("reset-btn");
+resetBtn.style.display = "none";
+
+function showResults(userOption) {
+  roundResultsMsg.innerText = getRoundResults(userOption);
+  roundResultsMsg.style.color = "indigo";
+  playerScoreTextElement.innerText = playerScore;
+  computerScoreTextElement.innerText = computerScore;
+  
+
+  if (playerScore === 5){
+    winnerMsgElement.innerText = "🎉 Player Wins the Game!";
+    winnerMsgElement.style.color = "darkorange";
+    roundResultsMsg.style.display = "none";
+    resetBtn.style.display = "block";
+    optionsContainer.style.display = "none";
+    
+  } else if (computerScore === 5){
+    winnerMsgElement.innerText = "💻 Computer Wins the Game!";
+    winnerMsgElement.style.color = "darkorange";
+    roundResultsMsg.style.display = "none";
+    resetBtn.style.display = "block";
+    optionsContainer.style.display = "none";
+
+  }
+};
+
+function resetGame(){
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreTextElement.innerText = playerScore;
+    computerScoreTextElement.innerText = computerScore;
+    resetBtn.style.display = "none";
+    optionsContainer.style.display = "";
+    winnerMsgElement.textContent = "";
+    roundResultsMsg.textContent = "";
+    roundResultsMsg.style.display = "block";
+};
+
+
+resetBtn.addEventListener("click", resetGame);
+
+let rockBtn = document.getElementById("rockBtn");
+let paperBtn = document.getElementById("paperBtn");
+let scissorsBtn = document.getElementById("scissorsBtn");
+
+rockBtn.addEventListener("click", () => {
+    showResults("Rock");
+});
+paperBtn.addEventListener("click", () => {
+    showResults("Paper");
+});
+scissorsBtn.addEventListener("click", () => {
+    showResults("Scissors");
+});
+
+
+/*
 function getComputerChoice() {         
     let computerChoice = Math.floor(Math.random()*3); 
     if (computerChoice === 0) {
@@ -85,3 +180,4 @@ function playGame(){
 }
 
 playGame();
+*/

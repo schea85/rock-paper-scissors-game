@@ -2,7 +2,7 @@ let options = ["Rock", "Paper", "Scissors"]
 
 function getComputerChoice(){
     let randomIndex = Math.floor(Math.random() * options.length);
-    return options[randomIndex];
+    return options[randomIndex];    
 };
 
 function hasPlayerWonTheRound(playerChoice, computerChoice) {
@@ -18,6 +18,9 @@ let computerScore = 0;
 
 function getRoundResults(userOption) {
   const computerResult = getComputerChoice();
+  
+  // display computer's choice
+  randomComputerResult.innerText = "Computer's Choice: " + computerResult;
 
   if (hasPlayerWonTheRound(userOption, computerResult)) {
     playerScore++;
@@ -37,6 +40,10 @@ const winnerMsgElement = document.getElementById("winner-msg");
 const optionsContainer = document.querySelector(".options-container");
 let resetBtn = document.getElementById("reset-btn");
 resetBtn.style.display = "none";
+let computerRockEmoji = document.getElementById("rockEmoji");
+let computerPaperEmoji = document.getElementById("paperEmoji");
+let computerScissorsEmoji = document.getElementById("scissorsEmoji");
+let randomComputerResult = document.getElementById("computer-result");
 
 function showResults(userOption) {
   roundResultsMsg.innerText = getRoundResults(userOption);
@@ -51,14 +58,14 @@ function showResults(userOption) {
     roundResultsMsg.style.display = "none";
     resetBtn.style.display = "block";
     optionsContainer.style.display = "none";
-    
+    randomComputerResult.innerText = "";
   } else if (computerScore === 5){
     winnerMsgElement.innerText = "💻 Computer Wins the Game!";
     winnerMsgElement.style.color = "darkorange";
     roundResultsMsg.style.display = "none";
     resetBtn.style.display = "block";
     optionsContainer.style.display = "none";
-
+    randomComputerResult.innerText = "";
   }
 };
 
@@ -72,6 +79,7 @@ function resetGame(){
     winnerMsgElement.textContent = "";
     roundResultsMsg.textContent = "";
     roundResultsMsg.style.display = "block";
+    randomComputerResult.innerText = ""
 };
 
 

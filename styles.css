@@ -57,10 +57,11 @@ button:hover {
     font-weight: bolder;
 }
 
-.rockEmoji:hover, .paperEmoji:hover, .scissorsEmoji:hover {
+
+/*.rockEmoji:hover, .paperEmoji:hover, .scissorsEmoji:hover {
     border: solid 2px darkgray;
     border-radius: 10%;
-}
+}*/
 
 p {
     font-weight: bolder;
@@ -70,4 +71,11 @@ p {
     display: flex;
     justify-content: center;
     margin: 20px auto;
+}
+
+.chosen {
+  background-color: yellow;
+  border: 2px solid orange;
+  border-radius: 5px;
+  padding: 5px;
 }

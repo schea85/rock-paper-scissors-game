@@ -91,14 +91,14 @@ p {
     }
 
     .heading {
-        font-size: .95rem; /*changed from 28px */
+        font-size: 1.5rem; /*changed from 28px */
         letter-spacing: 2px;
         margin: 50px;
     }
 
     .score-container {
         margin-bottom: 30px;
-        font-size: .4rem;
+        font-size: .65rem;
     }
 
     .emojis {
@@ -121,7 +121,7 @@ p {
     button {
         width: 50%;
         padding: 10px 0;
-        font-size: .4rem;
+        font-size: .75rem;
     }
 }
 

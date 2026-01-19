@@ -1,8 +1,8 @@
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     text-align: center;    
     background-color: lightgrey;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -18,27 +18,30 @@ body {
     text-align: center;
     color: darkorange;
     font-weight: bold;
-    font-size: 50px;
+    font-size: clamp(28px, 8vw, 50px); /* changed from 50px */
     text-shadow: 2px 2px 2px darkgrey;
     letter-spacing: 5px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .score-container {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .emojis {
     display: flex;
-    font-size: 150px;
-    gap: 90px;
-    margin-bottom: 80px;
+    font-size: 5rem;
+    gap: 5%; 
+    margin-bottom: 50px;
 }
 
 .options-container {
     display: flex;
-    gap: 120px;
-    height: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 10%; /* changed from 120px */
+    height: auto;
+    width: 90%;
     letter-spacing: 3px;
     margin-bottom: 20px;
 }
@@ -47,8 +50,9 @@ button {
     background-color: darkseagreen;
     color: indigo;
     font-weight: bold;
-    border-radius: 10%;
+    border-radius: 5%;
     border: solid 3px;
+    padding: 10px 20px;
 }
 
 button:hover {
@@ -79,3 +83,45 @@ p {
   border-radius: 5px;
   padding: 5px;
 }
+
+@media (max-width: 500px) {
+    body {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .heading {
+        font-size: .95rem; /*changed from 28px */
+        letter-spacing: 2px;
+        margin: 50px;
+    }
+
+    .score-container {
+        margin-bottom: 30px;
+        font-size: .4rem;
+    }
+
+    .emojis {
+        font-size: 1.5rem;
+        gap: 20px; 
+        margin-bottom: 30px;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        height: auto;
+        justify-content: center;
+        align-self: center;
+    }
+
+    button {
+        width: 50%;
+        padding: 10px 0;
+        font-size: .4rem;
+    }
+}
+
